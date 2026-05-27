@@ -4,7 +4,7 @@ logs/*.log
 __pycache__/
 *.py[cod]
 # DuckDB database files
-*.db
+
 *.db.wal
 
 # uv

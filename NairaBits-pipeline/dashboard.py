@@ -5,12 +5,12 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 st.set_page_config(
-    page_title="NaijaPulse",
+    page_title="NairaBits",
     page_icon="🇳🇬",
     layout="wide"
 )
 
-DB_PATH = "../afriPulse.db"
+DB_PATH = "nairabits.db"
 
 @st.cache_resource
 def get_conn():
@@ -37,7 +37,7 @@ def fmt_delta(now, prev, fmt="+.1f", suffix=""):
     return f"{now - prev:{fmt}}{suffix}"
 
 # ── Header ────────────────────────────────────────────────────────────────────
-st.title("🇳🇬 NaijaPulse")
+st.title("NairaBits")
 st.caption(
     "Nigeria's economic reality in data — Naira collapse, growth gaps "
     "and the electricity access crisis across 10 African nations."

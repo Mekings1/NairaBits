@@ -1,4 +1,4 @@
-# 🇳🇬 NaijaPulse
+# 🇳🇬 NairaBits
 
 > Nigeria's economic reality in data — Naira collapse, growth gaps, and the
 > electricity access crisis across 10 African nations.
@@ -16,7 +16,7 @@ inflation rate that has consistently outpaced GDP growth. Yet most data tools
 treat African economies as an afterthought — a footnote in a global dashboard
 built for US and European datasets.
 
-NaijaPulse is a production-grade data pipeline that puts Nigeria at the
+NairaBits is a production-grade data pipeline that puts Nigeria at the
 centre. It ingests live data from three public sources, transforms it through
 a clean layered architecture, and surfaces it in an interactive dashboard that
 tells the story numbers alone cannot.
@@ -25,7 +25,7 @@ tells the story numbers alone cannot.
 
 ## Dashboard
 
-![NaijaPulse Dashboard](./screenshots/pg1.png)
+![NairaBits Dashboard](./screenshots/pg1.png)
 
 Three focused tabs:
 
@@ -48,7 +48,7 @@ World Bank Open Data     → raw.wb_indicators  → stg.economics    → gdp_gro
 Our World in Data (CSV)  → raw.energy_data    → stg.energy       → nigeria_focus
                                                                   → africa_overview
 ```
-![NaijaPulse Lineage](./screenshots/lineage.png)
+![NairaBits Lineage](./screenshots/lineage.png)
 
 **9 assets · 3 data sources · 5 quality checks · fully local with DuckDB**
 
@@ -147,8 +147,8 @@ any other configuration changes.
 curl -LsSf https://getbruin.com/install/cli | sh
 
 # Clone the repo
-git clone https://github.com/mekings1/which-way-naija
-cd which-way-naija
+git clone https://github.com/mekings1/NairaBits
+cd NairaBits
 
 # Install Python dependencies
 uv add yfinance pandas requests streamlit plotly duckdb
@@ -159,10 +159,10 @@ echo "alias bruin-run='bruin run --workers 1'" >> ~/.bashrc
 source ~/.bashrc
 
 # Run the full pipeline
-bruin-run naijaPulse
+bruin-run NairaBits-pipeline
 
 # Launch the dashboard
-cd naijaPulse
+cd NairaBits-pipeline
 uv run streamlit run dashboard.py
 ```
 
@@ -171,8 +171,8 @@ uv run streamlit run dashboard.py
 ## Project Structure
 
 ```
-bruin/
-├── naijaPulse/
+NairaBits/
+├── NairaBits-pipeline/
 │   ├── pipeline.yml  
 │   ├── dashboard.py                    # Streamlit dashboard
 │   └── assets/
@@ -233,7 +233,7 @@ ORDER BY electricity_access DESC;
 ## What I Learned
 
 
-Building NaijaPulse with Bruin changed how I think about data pipelines.
+Building NairaBits with Bruin changed how I think about data pipelines.
 The `depends:` system means I never have to think about execution order —
 Bruin resolves the DAG automatically. Orchestration is already embedded.
 
