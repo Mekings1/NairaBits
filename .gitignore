@@ -1,0 +1,26 @@
+.bruin.yml
+logs/runs
+logs/*.log
+__pycache__/
+*.py[cod]
+# DuckDB database files
+*.db
+*.db.wal
+
+# uv
+.venv/
+__pycache__/
+*.pyc
+
+# Bruin
+.bruin/
+
+# Streamlit
+.streamlit/
+
+# Environment
+.env
+
+# OS
+.DS_Store
+Thumbs.db
