@@ -10,7 +10,7 @@ st.set_page_config(
     layout="wide"
 )
 
-DB_PATH = "nairabits.db"
+DB_PATH = "NairaBits-pipeline/nairabits.db"
 
 @st.cache_resource
 def get_conn():

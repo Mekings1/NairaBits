@@ -38,11 +38,15 @@ columns:
 
 @bruin */
 
-PIVOT (
-    SELECT country_code, country_name, year,
-        indicator_name, ROUND(value, 4) AS value
-    FROM raw.wb_indicators
-)
-ON indicator_name
-USING FIRST(value)
+SELECT
+    country_code,
+    country_name,
+    year,
+    MAX(CASE WHEN indicator_name = 'gdp_growth'        THEN ROUND(value, 4) END) AS gdp_growth,
+    MAX(CASE WHEN indicator_name = 'inflation'         THEN ROUND(value, 4) END) AS inflation,
+    MAX(CASE WHEN indicator_name = 'fdi_pct_gdp'       THEN ROUND(value, 4) END) AS fdi_pct_gdp,
+    MAX(CASE WHEN indicator_name = 'electricity_access' THEN ROUND(value, 4) END) AS electricity_access,
+    MAX(CASE WHEN indicator_name = 'unemployment'      THEN ROUND(value, 4) END) AS unemployment
+FROM raw.wb_indicators
+GROUP BY country_code, country_name, year
 ORDER BY country_code, year
